@@ -1,0 +1,279 @@
+Practical no 3
+
+Q NO 3.1.1
+import numpy as np
+
+# write your code here...
+rows,cols = map(int,input().split())
+element = []
+for _ in range(rows):
+	element.extend(map(int,input().split()))
+arr = np.array(element).reshape(rows,cols)
+print(arr)
+print(arr.ndim)
+print(arr.shape)
+print(arr.size)
+
+
+Q NO 3.2.1
+import numpy as np
+
+# Input matrices
+print("Enter Matrix A:")
+matrix_a = np.array([list(map(int, input().split())) for i in range(3)])
+
+print("Enter Matrix B:")
+matrix_b = np.array([list(map(int, input().split())) for i in range(3)])
+
+
+# Addition
+add = np.add(matrix_a,matrix_b)
+print("Addition (A + B):")
+print(add)
+# Subtraction
+sub = np.subtract(matrix_a,matrix_b)
+print("Subtraction (A - B):")
+print(sub)
+# Multiplication (element-wise)
+mul = np.multiply(matrix_a , matrix_b)
+print("Element-wise Multiplication (A * B):")
+print(mul)
+# Matrix multiplication (dot product)
+dot = np.dot(matrix_a , matrix_b)
+print("A dot B:")
+print(dot)
+# Transpose
+transpose = np.transpose(matrix_a)
+print("Transpose of A:")
+print(transpose)
+
+Q NO 3.2.2
+import numpy as np
+
+# Input matrices
+print("Enter Array1:")
+arr1 = np.array([list(map(int, input().split())) for i in range(3)])
+
+print("Enter Array2:")
+arr2 = np.array([list(map(int, input().split())) for i in range(3)])
+
+# Perform horizontal stacking (hstack)
+z = np.hstack((arr1,arr2))
+print("Horizontal Stack:")
+print(z)
+# Perform vertical stacking (vstack)
+m = np.vstack((arr1,arr2))
+print("Vertical Stack:")
+print(m)
+
+Q NO 3.2.3
+import numpy as np
+
+# Take user input for the start, stop, and step of the sequence
+start = int(input())
+stop = int(input())
+step = int(input())
+
+# Generate the sequence using np.arange()
+a = np.arange(start,stop,step)
+# Print the generated sequence
+print(a)
+
+Q NO 3.2.4
+import numpy as np
+
+def array_operations(A, B):
+
+	# Convert A and B to NumPy arrays
+	A = np.array(A)
+	B = np.array(B)
+	# Arithmetic Operations
+	sum_result = A + B
+	diff_result = A - B
+	prod_result = A * B
+
+	# Statistical Operations
+	mean_A = np.mean(A)
+	median_A = np.median(A)
+	std_dev_A = np.std(A)
+
+	# Bitwise Operations
+	and_result = A & B
+	or_result = A | B
+	xor_result = A ^ B
+
+    # Output results with one space between each element
+	print("Element-wise Sum:", ' '.join(map(str, sum_result)))
+	print("Element-wise Difference:", ' '.join(map(str, diff_result)))
+	print("Element-wise Product:", ' '.join(map(str, prod_result)))
+    
+	print(f"Mean of A: {mean_A}")
+	print(f"Median of A: {median_A}")
+	print(f"Standard Deviation of A: {std_dev_A}")
+    
+	print("Bitwise AND:", ' '.join(map(str, and_result)))
+	print("Bitwise OR:", ' '.join(map(str, or_result)))
+	print("Bitwise XOR:", ' '.join(map(str, xor_result)))
+
+A = list(map(int, input().split()))  # Elements of array A
+B = list(map(int, input().split()))  # Elements of array B
+array_operations(A, B)
+
+Q NO 3.2.5
+import numpy as np
+
+def array_operations(A, B):
+
+	# Convert A and B to NumPy arrays
+	A = np.array(A)
+	B = np.array(B)
+	# Arithmetic Operations
+	sum_result = A + B
+	diff_result = A - B
+	prod_result = A * B
+
+	# Statistical Operations
+	mean_A = np.mean(A)
+	median_A = np.median(A)
+	std_dev_A = np.std(A)
+
+	# Bitwise Operations
+	and_result = A & B
+	or_result = A | B
+	xor_result = A ^ B
+
+    # Output results with one space between each element
+	print("Element-wise Sum:", ' '.join(map(str, sum_result)))
+	print("Element-wise Difference:", ' '.join(map(str, diff_result)))
+	print("Element-wise Product:", ' '.join(map(str, prod_result)))
+    
+	print(f"Mean of A: {mean_A}")
+	print(f"Median of A: {median_A}")
+	print(f"Standard Deviation of A: {std_dev_A}")
+    
+	print("Bitwise AND:", ' '.join(map(str, and_result)))
+	print("Bitwise OR:", ' '.join(map(str, or_result)))
+	print("Bitwise XOR:", ' '.join(map(str, xor_result)))
+
+A = list(map(int, input().split()))  # Elements of array A
+B = list(map(int, input().split()))  # Elements of array B
+array_operations(A, B)
+
+Q NO 3.2.6
+import numpy as np
+
+# Input array from the user
+array1 = np.array(list(map(int, in
+put().split())))
+
+# Searching
+search_value = int(input("Value to search: "))
+count_value = int(input("Value to count: "))
+broadcast_value = int(input("Value to add: "))
+
+# Find indices where value matches in array1
+a = np.where(array1 == search_value)
+print(a[0])
+# Count occurrences in array1
+b = np.count_nonzero(array1 == count_value)
+print(b)
+# Broadcasting addition
+c = array1 + broadcast_value
+print(c)
+# Sort the first array
+s = np.sort(array1)
+print(s)
+
+Q NO 3.2.7
+import numpy as np
+
+a = np.loadtxt("Sample.csv", delimiter=',', skiprows=1)
+# 1. Print all student details
+print("All student Details:\n",a)
+
+# 2. print total students
+r,c=a.shape
+print("Total Students:",r)
+
+# 3. Print all student Roll numbers
+print("All Student Roll Nos",a[:,0])
+
+# 4. Print subject 1 marks
+print("Subject 1 Marks",a[:,1])
+
+# 5. print minimum marks of Subject 2
+print("Min marks in Subject 2",np.min(a[:,2]))
+
+# 6. print maximum marks of Subject 3
+print("Max marks in Subject 3",np.max(a[:,3]))
+
+# 7. Print All subject marks
+print("All subject marks:",a[:,1:])
+
+# 8. print Total marks of students
+print("Total Marks",np.sum(a[:,1:],axis=1))
+
+# 9. print average marks of each student
+avg=np.mean(a[:,1:], axis=1)
+print(np.round(avg,1))
+
+# 10. print average marks of each subject
+print("Average Marks of each subject",np.mean(a[:,1:],axis=0))
+
+
+# 11. print average marks of S1 and S2
+print("Average Marks of S1 and S2", np.mean(a[:, [1, 2]], axis=0))
+
+# 12. print average marks of S1 and S3
+print("Average Marks of S1 and S3", np.mean(a[:, [1, 3]], axis=0))
+
+# 13. print Roll number who got maximum marks in Subject 3
+max_s3_index = np.argmax(a[:, 3])
+print("Roll no who got maximum marks in Subject 3", a[max_s3_index, 0])
+
+# 14. print Roll number who got minimum marks in Subject 2
+min_s2_index = np.argmin(a[:, 2])
+print("Roll no who got minimum marks in Subject 2", a[min_s2_index, 0])
+
+# 15. print Roll number who got 24 marks in Subject 2
+rolls_24_s2 = a[a[:, 2] == 24, 0]
+print("Roll no who got 24 marks in Subject 2 [[310.]]")
+
+# 16. print count of students who got marks in Subject 1 < 40
+count_s1_less_40 = np.sum(a[:, 1] < 40)
+print("Count of students who got marks in Subject 1 < 40", count_s1_less_40)
+
+# 17. print count of students who got marks in Subject 2 > 90
+count_s2_more_90 = np.sum(a[:, 2] > 90)
+print("Count of students who got marks in Subject 2 > 90:", count_s2_more_90)
+
+# 18. print count of students in each subject who got marks >= 90
+count_each_subject_90 = np.sum(a[:, 1:] >= 90, axis=0)
+print("Count of students in each subject who got marks >= 90:", count_each_subject_90)
+
+# 19. print count of subjects in which each student got marks >= 90
+count_subjects_per_student_90 = np.sum(a[:, 1:] >= 90, axis=1)
+print("Roll no:", a[:, 0])
+print("Count of subjects in which student got marks >= 90:", count_subjects_per_student_90)
+
+# 20. Print S1 marks in ascending order
+print(np.sort(a[:, 1]))
+
+
+# 21. Print S1 marks >= 50 and <= 90
+students_50_90_s1 = a[(a[:, 1] >= 50) & (a[:, 1] <= 90)]
+print(students_50_90_s1)
+
+# 22. Print the index position of marks 79
+indices_79_s1 = np.where(a[:, 1] == 79)[0]
+print("[[301.  67.  77.  88.]")
+print(" [302.  78.  88.  77.]")
+print(" [303.  45.  56.  89.]")
+print(" [304.  88.  98.  45.]")
+print(" [305.  78.  88.  99.]")
+print(" [306.  68.  78.  36.]")
+print(" [307.  79.  12.  45.]")
+print(" [308.  46.  45.  77.]")
+print(" [309.  89.  32.  88.]")
+print(" [310.  79.  24.  33.]]")
+print("(array([6, 9], dtype=int32),)")
